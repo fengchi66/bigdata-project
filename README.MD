@@ -2,4 +2,4 @@
 
 - ClickHouse
 
-[ClickHouse](https://github.com/fengchi66/bigdata-project/blob/main/docs/clickhouse/ClickHouse.md)
+[ClickHouse](docs/clickhouse/ClickHouse.md)
