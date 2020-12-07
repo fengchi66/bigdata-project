@@ -1,4 +1,4 @@
-# ClickHouse
+# ClickHouse简介及安装
 
 [toc]
 
@@ -190,43 +190,4 @@ ClickHouse非常适用于商业智能领域，除此之外，它也能够被广�
 
 
 
-## 二、ClickHouse表引擎
-
-在上一篇分享中，我们介绍了ClickHouse的安装部署和简单使用。本文将介绍ClickHouse中一个非常重要的概念—**表引擎(table engine)**。如果对MySQL熟悉的话，或许你应该听说过InnoDB和MyISAM存储引擎。不同的存储引擎提供不同的存储机制、索引方式、锁定水平等功能，也可以称之为**表类型**。ClickHouse提供了丰富的表引擎，这些不同的表引擎也代表着不同的**表类型**。比如数据表拥有何种特性、数据以何种形式被存储以及如何被加载。本文会对ClickHouse中常见的表引擎进行介绍，主要包括以下内容：
-
-- 表引擎的作用是什么
-- MergeTree系列引擎
-- Log家族系列引擎
-- 外部集成表引擎
-- 其他特殊的表引擎
-
-
-
-### 表引擎的作用是什么
-
-- 决定表存储在哪里以及以何种方式存储
-- 支持哪些查询以及如何支持
-- 并发数据访问
-- 索引的使用
-- 是否可以执行多线程请求
-- 数据复制参数
-
-
-
-### 表引擎分类
-
-| 引擎分类            | 引擎名称                                                     |
-| :------------------ | :----------------------------------------------------------- |
-| MergeTree系列       | MergeTree 、ReplacingMergeTree 、SummingMergeTree 、 AggregatingMergeTree   CollapsingMergeTree 、 VersionedCollapsingMergeTree 、GraphiteMergeTree |
-| Log系列             | TinyLog 、StripeLog 、Log                                    |
-| Integration Engines | Kafka 、MySQL、ODBC 、JDBC、HDFS                             |
-| Special Engines     | Distributed 、MaterializedView、 Dictionary 、Merge 、File、Null 、Set 、Join 、 URL   View、Memory 、 Buffer |
-
-
-
-### Log系列表引擎
-
-#### 应用场景
-
-Log系列表引擎功能相对简单，主要用于快速写入小表(1百万行左右的表)，然后全部读出的场景。**即一次写入多次查询**。
-
+## 
