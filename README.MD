@@ -8,6 +8,10 @@
 
 [3.ClickHouse的数据结构](docs/clickhouse/ClickHouse数据结构.md)
 
+- 企业实践(可以学习一下他们的思路)
+
+[ClickHouse 在字节跳动的技术应用与实践-直播回放](https://www.ixigua.com/6853991019050959371/)
+
 - Flink
 
 [Flink TaskExecutor内存管理](docs/flink/FlinkTaskExecutor内存管理.md)
