@@ -13,13 +13,13 @@
 
 - Flink 1.10内存模型：
 
-  <img src="Flink TaskExecutor内存管理.assets/image-20200920223508792.png" alt="image-20200920223508792" style="zoom:50%;" />
+  <img src="FlinkTaskExecutor内存管理.assets/image-20200920223508792.png" alt="image-20200920223508792" style="zoom:50%;" />
 
 
 
 ## 二、Flink内存类型及用途
 
-<img src="Flink TaskExecutor内存管理.assets/image-20200920223853718.png" alt="image-20200920223853718" style="zoom:50%;" />
+<img src="FlinkTaskExecutor内存管理.assets/image-20200920223853718.png" alt="image-20200920223853718" style="zoom:50%;" />
 
 > 左图是Flink1.10设计文档的内存模型图，有图为Flink 官方用户文档内存模型，实际上语义是一样的。
 >
@@ -39,7 +39,7 @@
 
 - 无隔离
 
-  <img src="Flink TaskExecutor内存管理.assets/image-20200921222757296.png" alt="image-20200921222757296" style="zoom:50%;" />
+  <img src="FlinkTaskExecutor内存管理.assets/image-20200921222757296.png" alt="image-20200921222757296" style="zoom:50%;" />
 
 > 1. 设置JVM的参数，但我们并没有在Slot与Framework之间进行隔离，一个TaskExecutor是一个进程，不管TaskExecutor进行的是Slot也好，还是框架的其他任务也好，都是线程级别的任务。那对于JVM的内存特点来说，它是不会在线程级别对内存的使用量进行限制的。那为什么还要引入Framework与Task的区别呢？为后续版本的准备：动态切割Slot资源。
 > 2. 不建议对Framework的内存进行调整，保留它的默认值。在Flink 1.10发布之前，它的默认值是通过跑一个空的Cluster，上面不调度任何任务的情况下，通过测量、计算出来的Framework所需要的内存。
@@ -131,7 +131,7 @@
   - 未经JVM虚拟化的内存
   - 直接映射到本地OS内存地址
 
-<img src="Flink TaskExecutor内存管理.assets/image-20200920230448872.png" alt="image-20200920230448872" style="zoom:50%;" />
+<img src="FlinkTaskExecutor内存管理.assets/image-20200920230448872.png" alt="image-20200920230448872" style="zoom:50%;" />
 
 > 1. Java的Heap内存空间实际上也是切分为了Eden、S0、S1、Tenured这几部分，所谓的垃圾回收机制会让对象在Eden空间中，随着Eden空间满了之后会触发GC，把已经没有使用的内存释放掉；已经引用的对象会移动到Servivor空间，在S0和S1之间反复复制，最后会放在老年代内存空间中。 这是Java的GC机制，造成的问题是Java对象会在内存空间中频繁的进行复制、拷贝。
 > 2. 所谓的Off-Heap内存，是直接使用操作系统提供的内存，也就是说内存地址是操作系统来决定的。一方面避免了内存在频繁GC过程中拷贝的操作，另外如果涉及到对一些OS的映射或者网络的一些写出、文件的一些写出，它避免了在用户空间复制的一个成本，所以它的效率会相对更高。 
@@ -200,7 +200,7 @@
   - Flink框架及用户代码不需要或只需要少量Native内存
   - Heap活动足够频繁，能够及时触发GC释放不需要的Direct内存
 
-![image-20200921183651039](Flink TaskExecutor内存管理.assets/image-20200921183651039.png)
+![image-20200921183651039](FlinkTaskExecutor内存管理.assets/image-20200921183651039.png)
 
 > 如果需要大量使用Native内存，可以考虑增大JVM Overhead
 
