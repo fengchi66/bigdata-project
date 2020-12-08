@@ -45,7 +45,7 @@ ClickHouse非常适用于商业智能领域，除此之外，它也能够被广�
 1. 直接运行, docker会自动帮你拉取镜像:
 
    ```shell
-   docker run -d --name ch-server --ulimit nofile=262144:262144 -p 8123:8123 -p 9000:9000 -p 9009:9009 yandex/clickhouse-serve
+   docker run -d --name ch-server --ulimit nofile=262144:262144 -p 8123:8123 -p 9000:9000 -p 9009:9009 yandex/clickhouse-server
    ```
 
 > -d  代表后台运行 --name 自定义ck的服务名称 -p：容器端口映射到当前主机端口 不指定默认http端口是8123，tcp端口是9000
