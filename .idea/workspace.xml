@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="" />
+    <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/clickhouse/ClickHouse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/clickhouse/ClickHouse.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +61,7 @@
       <workItem from="1607677248537" duration="243000" />
       <workItem from="1607677523472" duration="305000" />
       <workItem from="1607677965354" duration="429000" />
+      <workItem from="1607690274171" duration="294000" />
     </task>
     <servers />
   </component>
@@ -65,14 +69,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1998" y="332" key="com.intellij.ide.util.TipDialog" timestamp="1607677965432">
-      <screen x="1440" y="0" width="1920" height="1080" />
+    <state x="1998" y="152" key="com.intellij.ide.util.TipDialog" timestamp="1607690275245">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
     <state x="1998" y="332" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607677965432" />
     <state x="1998" y="314" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.0.1920.1020@1440.0.1920.1020" timestamp="1607677248663" />
     <state x="1998" y="331" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1607396933246" />
     <state x="1998" y="151" key="com.intellij.ide.util.TipDialog/1440.-155.1920.995/0.25.1440.875@1440.-155.1920.995" timestamp="1607360147391" />
-    <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607346156801" />
+    <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607690275245" />
     <state x="0" y="25" key="new project wizard" timestamp="1607265897495">
       <screen x="0" y="25" width="1440" height="875" />
     </state>

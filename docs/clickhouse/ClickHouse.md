@@ -1,10 +1,10 @@
+* [ClickHouse简介及安装](#clickhouse简介及安装)
+  * [ClickHouse简介](#clickhouse简介)
+  * [基于Docker安装ClickHouse单机版](#基于docker安装clickhouse单机版)
+  
 # ClickHouse简介及安装
 
-[toc]
-
-## 一、ClickHouse简介及安装
-
-### ClickHouse简介
+## ClickHouse简介
 
 ClickHouse是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。ClickHouse最初是一款名为Yandex.Metrica的产品，主要用于WEB流量分析。ClickHouse的全称是**Click Stream,Data WareHouse**，简称ClickHouse。
 
@@ -40,7 +40,7 @@ ClickHouse非常适用于商业智能领域，除此之外，它也能够被广�
 
 
 
-### 基于Docker安装ClickHouse单机版
+## 基于Docker安装ClickHouse单机版
 
 1. 直接运行, docker会自动帮你拉取镜像:
 
@@ -187,7 +187,3 @@ ClickHouse非常适用于商业智能领域，除此之外，它也能够被广�
      
      1 rows in set. Elapsed: 0.004 sec. 
      ```
-
-
-
-## 
