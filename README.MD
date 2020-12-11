@@ -1,6 +1,6 @@
 # 大数据常用框架技术笔记
 
-- ClickHouse
+## ClickHouse
 
 [1.ClickHouse简介及安装](docs/clickhouse/ClickHouse.md)
 
