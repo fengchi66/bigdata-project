@@ -31,7 +31,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/flink" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -56,6 +56,8 @@
       <workItem from="1607347516670" duration="753000" />
       <workItem from="1607353008899" duration="309000" />
       <workItem from="1607360147313" duration="15000" />
+      <workItem from="1607396933219" duration="325000" />
+      <workItem from="1607609968759" duration="699000" />
     </task>
     <servers />
   </component>
@@ -63,9 +65,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1998" y="151" key="com.intellij.ide.util.TipDialog" timestamp="1607360147391">
-      <screen x="1440" y="-155" width="1920" height="995" />
+    <state x="1998" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1607677248663">
+      <screen x="1440" y="0" width="1920" height="1020" />
     </state>
+    <state x="1998" y="314" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.0.1920.1020@1440.0.1920.1020" timestamp="1607677248663" />
+    <state x="1998" y="331" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1607396933246" />
     <state x="1998" y="151" key="com.intellij.ide.util.TipDialog/1440.-155.1920.995/0.25.1440.875@1440.-155.1920.995" timestamp="1607360147391" />
     <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607346156801" />
     <state x="0" y="25" key="new project wizard" timestamp="1607265897495">

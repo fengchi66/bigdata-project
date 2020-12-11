@@ -1,4 +1,4 @@
-## 大数据常用框架技术笔记
+# 大数据常用框架技术笔记
 
 - ClickHouse
 
@@ -15,3 +15,15 @@
 - Flink
 
 [Flink TaskExecutor内存管理](docs/flink/FlinkTaskExecutor内存管理.md)
+
+
+- Flink社区动态
+
+## Streaming System
+
+- Streaming System
+
+[Streaming 101: The world beyond batch](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101)
+[Streaming 102: The world beyond batch](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102)
+
+
