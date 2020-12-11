@@ -27,4 +27,6 @@
 
 [Streaming 102: The world beyond batch](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102)
 
+[Streaming Systems](https://www.oreilly.com/library/view/streaming-systems/9781491983867/?_ga=2.214328721.704251868.1607675381-1314152331.1607675381)
+
 
