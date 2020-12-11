@@ -1,3 +1,24 @@
+* [ClickHouse的数据结构](#clickhouse的数据结构)
+  * [数值类型](#数值类型)
+    * [Int类型](#int类型)
+    * [浮点类型](#浮点类型)
+    * [Decimal类型](#decimal类型)
+  * [字符串类型](#字符串类型)
+    * [String](#string)
+    * [FixedString](#fixedstring)
+    * [UUID](#uuid)
+  * [日期类型](#日期类型)
+    * [Date类型](#date类型)
+    * [DateTime类型](#datetime类型)
+  * [布尔类型](#布尔类型)
+  * [数组类型](#数组类型)
+  * [枚举类型](#枚举类型)
+  * [Tuple类型](#tuple类型)
+  * [特殊数据类型](#特殊数据类型)
+    * [Nullable](#nullable)
+    * [Domain](#domain)
+
+
 # ClickHouse的数据结构
 
 ClickHouse提供了许多数据类型，它们可以划分为基础类型、复合类型和特殊类型。我们可以在`system.data_type_families`表中检查数据类型名称以及是否区分大小写。

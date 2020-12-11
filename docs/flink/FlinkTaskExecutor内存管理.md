@@ -1,3 +1,23 @@
+* [Flink TaskExecutor内存管理](#flink-taskexecutor内存管理)
+  * [一、 背景](#一-背景)
+  * [二、Flink内存类型及用途](#二flink内存类型及用途)
+    * [Framework 和 Task Memory](#framework-和-task-memory)
+    * [Heap 和 Off\-Heap Memory](#heap-和-off-heap-memory)
+    * [NetWork Memory：](#network-memory)
+    * [Managed Memory](#managed-memory)
+    * [JVM Metaspace](#jvm-metaspace)
+    * [JVM Overhead](#jvm-overhead)
+  * [三、内存特性解读](#三内存特性解读)
+    * [Java内存类型](#java内存类型)
+    * [Heap Memory特性](#heap-memory特性)
+    * [Direct Memory特性](#direct-memory特性)
+    * [Metaspace特性](#metaspace特性)
+    * [Native Memory特性](#native-memory特性)
+    * [Framework / Task Off\-Heap Memory](#framework--task-off-heap-memory)
+  * [四、 配置方法](#四-配置方法)
+    * [Expilcit &amp; Implicit](#expilcit--implicit)
+    * [如何避免配置冲突](#如何避免配置冲突)
+
 # Flink TaskExecutor内存管理
 
 ## 一、 背景
