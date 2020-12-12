@@ -7,6 +7,9 @@
 
 [Flink TaskExecutor内存管理](docs/flink/FlinkTaskExecutor内存管理.md)
 
+### 社区
+[Flink1.12 native kubernetes 演进](docs/flink/Flink1.12nativekubernetes演进.md)
+
 
 ## ClickHouse
 
