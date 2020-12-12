@@ -8,7 +8,7 @@
 
 Flink 1.10 开始支持将 native kubernetes 作为其资源管理器。在该版本中，你可以使用以下命令在你的 kubernetes 集群中创建一个flink session。
 
-```text
+```shell
 ./bin/kubernetes-session.sh \
   -Dkubernetes.cluster-id=<ClusterId> \
   -Dtaskmanager.memory.process.size=4096m \
@@ -21,7 +21,7 @@ Flink 1.10 开始支持将 native kubernetes 作为其资源管理器。在该�
 
 然后使用如下的命令，提交任务到我们刚刚创建的Session 中：
 
-```text
+```shell
  ./bin/flink run -d -e kubernetes-session -Dkubernetes.cluster-id=<ClusterId> examples/streaming/WindowJoin.jar
 ```
 
@@ -37,7 +37,7 @@ Flink1.11， 首先创建 session 的kubernetes 相关参数支持增多了，�
 
 可以使用如下命令，启动application：
 
-```text
+```shell
  ./bin/flink run-application -p 8 -t kubernetes-application \
   -Dkubernetes.cluster-id=<ClusterId> \
   -Dtaskmanager.memory.process.size=4096m \
