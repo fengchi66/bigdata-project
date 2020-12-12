@@ -120,7 +120,7 @@ Log系列表引擎功能相对简单，主要用于快速写入小表(1百万行
 
 该引擎适用于**一次写入，多次读取的场景**。对于处理小批数据的中间表可以使用该引擎。值得注意的是，使用大量的小表存储数据，性能会很低。
 
-```
+```sql
 CREATE TABLE emp_tinylog (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -138,7 +138,7 @@ VALUES (3,'bob','北京',33,'财务部',50000),(4,'tony','杭州',28,'销售事�
 
 进入默认数据存储目录，查看底层数据存储形式,可以看出：**TinyLog**引擎表每一列都对应的文件
 
-```
+```shell
 [root@cdh04 emp_tinylog]# pwd
 /var/lib/clickhouse/data/default/emp_tinylog
 [root@cdh04 emp_tinylog]# ll
@@ -178,7 +178,7 @@ VALUES (3,'bob','北京',33,'财务部',50000),(4,'tony','杭州',28,'销售事�
 
 当我们执行**ALTER操作**时会报错，说明该表引擎不支持ALTER操作
 
-```
+```sql
 -- 以下操作会报错：
 -- DB::Exception: Mutations are not supported by storage TinyLog.
 ALTER TABLE emp_tinylog DELETE WHERE emp_id = 5;
@@ -189,7 +189,7 @@ ALTER TABLE emp_tinylog UPDATE age = 30 WHERE emp_id = 4;
 
 相比TinyLog而言，StripeLog拥有更高的查询性能（拥有.mrk标记文件，支持并行查询），同时其使用了更少的文件描述符（所有数据使用同一个文件保存）。
 
-```shell
+```sql
 CREATE TABLE emp_stripelog (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -248,7 +248,7 @@ FROM emp_stripelog
 
 Log引擎表适用于临时数据，一次性写入、测试场景。Log引擎结合了TinyLog表引擎和StripeLog表引擎的长处，是Log系列引擎中性能最高的表引擎。
 
-```shell
+```sql
 CREATE TABLE emp_log (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -323,7 +323,7 @@ MergeTree作为家族系列最基础的表引擎，主要有以下特点：
 
 #### 建表语法
 
-```shell
+```sql
 CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 (
     name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1] [TTL expr1],
@@ -350,7 +350,7 @@ ORDER BY expr
 
 #### 建表示例
 
-```shell
+```sql
 CREATE TABLE emp_mergetree (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -409,7 +409,7 @@ drwxr-x--- 2 clickhouse clickhouse    6 9月  17 17:43 detached
 
 - **columns.txt**：列信息文件，使用明文格式存储。用于保存此数据分区下的列字段信息，例如
 
-  ```shell
+  ```sql
   [root@cdh04 1c89a3ba9fe5fd53379716a776c5ac34_3_3_0]# cat columns.txt
   columns format version: 1
   6 columns:
@@ -435,7 +435,7 @@ drwxr-x--- 2 clickhouse clickhouse    6 9月  17 17:43 detached
 
 - 多次插入数据，会生成多个分区文件
 
-```shell
+```sql
 -- 新插入两条数据
 cdh04 :) INSERT INTO emp_mergetree
 VALUES (5,'robin','北京',35,'财务部',50000),(6,'lilei','北京',38,'销售事部',50000);
@@ -460,7 +460,7 @@ cdh04 :) select * from emp_mergetree;
 
 可以看出，新插入的数据新生成了一个数据块，并没有与原来的分区数据在一起，我们可以执行**optimize**命令，执行合并操作
 
-```shell
+```sql
 -- 执行合并操作
 cdh04 :) OPTIMIZE TABLE emp_mergetree PARTITION '北京';
 -- 再次执行查询
@@ -486,7 +486,7 @@ FROM emp_mergetree
 
 - 在MergeTree中主键并不用于去重，而是用于索引，加快查询速度
 
-```
+```sql
 -- 插入一条相同主键的数据
  INSERT INTO emp_mergetree
 VALUES (1,'sam','杭州',35,'财务部',50000);
@@ -499,7 +499,7 @@ VALUES (1,'sam','杭州',35,'财务部',50000);
 
 #### 建表语法
 
-```shell
+```sql
 CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 (
     name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
@@ -518,7 +518,7 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 
 #### 建表示例
 
-```shell
+```sql
 CREATE TABLE emp_replacingmergetree (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -542,7 +542,7 @@ VALUES (3,'bob','北京',33,'财务部',50000),(4,'tony','杭州',28,'销售事�
 
 当我们再次向该表插入具有相同主键的数据时，观察查询数据的变化
 
-```shell
+```sql
 INSERT INTO emp_replacingmergetree
 VALUES (1,'tom','上海',25,'技术部',50000);
 -- 查询数据，由于没有进行合并，所以存在主键重复的数据
@@ -586,7 +586,7 @@ FROM emp_replacingmergetree
 
 从上面的示例中可以看出，ReplacingMergeTree是支持对数据去重的，那么是根据什么进行去重呢？答案是：**ReplacingMergeTree在去除重复数据时，是以ORDERBY排序键为基准的，而不是PRIMARY KEY**。我们在看一个示例：
 
-```
+```sql
 CREATE TABLE emp_replacingmergetree1 (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -608,7 +608,7 @@ VALUES (3,'bob','北京',33,'财务部',50000),(4,'tony','杭州',28,'销售事�
 
 再次向该表中插入相同emp_id和name的数据，并执行合并操作，再观察数据
 
-```shell
+```sql
 -- 插入数据
 INSERT INTO emp_replacingmergetree1
 VALUES (1,'tom','上海',25,'技术部',50000),(1,'sam','上海',25,'技术部',20000);
@@ -635,7 +635,7 @@ FROM emp_replacingmergetree1
 
 至此，我们知道了ReplacingMergeTree是支持去重的，并且是按照**ORDERBY排序键**为基准进行去重的。细心的你会发现，上面的重复数据是在一个分区内的，那么如果重复的数据不在一个分区内，会发生什么现象呢？我们再次向上面的**emp_replacingmergetree1**表插入不同分区的重复数据
 
-```shell
+```sql
 -- 插入数据
 INSERT INTO emp_replacingmergetree1
 VALUES (1,'tom','北京',26,'技术部',10000);
@@ -698,7 +698,7 @@ ReplacingMergeTree是以分区为单位删除重复数据的。只有在相同�
 
 #### 建表语法
 
-```shell
+```sql
 CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 (
     name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
@@ -713,7 +713,7 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 
 #### 建表示例
 
-```shell
+```sql
 CREATE TABLE emp_summingmergetree (
   emp_id UInt16 COMMENT '员工id',
   name String COMMENT '员工姓名',
@@ -735,7 +735,7 @@ VALUES (3,'bob','北京',33,'财务部',50000),(4,'tony','杭州',28,'销售事�
 
 当我们再次插入具有相同emp_id,name的数据时，观察结果
 
-```shell
+```sql
 INSERT INTO emp_summingmergetree
 VALUES (1,'tom','上海',25,'信息部',10000),(1,'tom','北京',26,'人事部',10000);
 cdh04 :) select * from emp_summingmergetree;
@@ -785,7 +785,7 @@ FROM emp_summingmergetree
 
 要保证**PRIMARY KEY expr**指定的主键是**ORDER BY expr** 指定字段的前缀，比如
 
-```shell
+```sql
 -- 允许
 ORDER BY (A,B,C) 
 PRIMARY KEY A  
@@ -815,7 +815,7 @@ PRIMARY KEY B
 
 如果两行数据除了排序字段相同，其他的非聚合字段不相同，那么在聚合发生时，会保留最初的那条数据，新插入的数据对应的那个字段值会被舍弃
 
-```shell
+```sql
 -- 新插入的数据:        1 │ tom  │ 上海       │  25 │ 信息部 │ 10000.00 
 -- 最初的数据 ：        1 │ tom  │ 上海       │  25 │ 技术部 │ 20000.00
 
@@ -830,7 +830,7 @@ PRIMARY KEY B
 
 #### 建表语法
 
-```shell
+```sql
 CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 (
     name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
@@ -1264,7 +1264,7 @@ FROM hdfs_engine_table
 
 #### 使用方式
 
-```
+```sql
 CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 (
     name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1] [TTL expr1],
@@ -1344,7 +1344,7 @@ JDBC表引擎不仅可以对接MySQL数据库，还能够与PostgreSQL等数据�
 
 然后我们再配置`/etc/clickhouse-server/config.xml`，在文件中添加如下配置，然后重启服务。
 
-```sql
+```xml
 <jdbc_bridge>
     <host>cdh04</host>
     <port>9019</port>
@@ -1514,7 +1514,7 @@ FROM kafka_table_mergetree
 
 Memory表引擎直接将数据保存在内存中，数据既不会被压缩也不会被格式转换。当ClickHouse服务重启的时候，Memory表内的数据会全部丢失。一般在测试时使用。
 
-```
+```sql
  CREATE TABLE table_memory (
     id UInt64,
     name String
@@ -1550,7 +1550,7 @@ Distributed(cluster_name, database_name, table_name[, sharding_key])
 
 #### 使用示例
 
-```
+```sql
 -- 创建一张分布式表
 CREATE TABLE IF NOT EXISTS user_cluster ON CLUSTER cluster_3shards_1replicas
 (
@@ -1563,7 +1563,7 @@ CREATE TABLE IF NOT EXISTS user_cluster ON CLUSTER cluster_3shards_1replicas
 
 接下来就需要创建本地表了，在每台机器上分别创建一张本地表：
 
-```
+```sql
 CREATE TABLE IF NOT EXISTS user_local 
 (
     id Int32,
@@ -1576,7 +1576,7 @@ PRIMARY KEY id;
 
 我们先在一台机器上，对user_local表进行插入数据，然后再查询user_cluster表
 
-```
+```sql
 -- 插入数据
 cdh04 :) INSERT INTO user_local VALUES(1,'tom'),(2,'jack');
 -- 查询user_cluster表,可见通过user_cluster表可以操作所有的user_local表
