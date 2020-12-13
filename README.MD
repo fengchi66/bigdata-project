@@ -5,6 +5,8 @@
 ### 基础
 [流处理基础](docs/flink/流初级基础.md)
 
+[Flink运行架构](docs/flink/Flink运行架构.md)
+
 [Streaming Joins](docs/flink/FlinkStreamingJoins.md)
 
 [Flink TaskExecutor内存管理](docs/flink/FlinkTaskExecutor内存管理.md)

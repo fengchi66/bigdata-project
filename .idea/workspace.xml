@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/flink/FlinkStreamingJoins.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/flink/Flink运行架构.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,13 +32,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/flink" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs/clickhouse" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/flink" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -63,7 +64,7 @@
       <workItem from="1607677965354" duration="429000" />
       <workItem from="1607690274171" duration="1204000" />
       <workItem from="1607776037104" duration="1412000" />
-      <workItem from="1607790306719" duration="716000" />
+      <workItem from="1607790306719" duration="2107000" />
     </task>
     <servers />
   </component>
@@ -71,6 +72,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1800" y="-92" key="SettingsEditor" timestamp="1607827507916">
+      <screen x="1440" y="-180" width="1920" height="1080" />
+    </state>
+    <state x="1800" y="-92" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607827507916" />
     <state x="1998" y="152" key="com.intellij.ide.util.TipDialog" timestamp="1607790306669">
       <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
