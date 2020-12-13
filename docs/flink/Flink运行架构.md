@@ -64,7 +64,9 @@ Dataflow 模型的核心点在于：
 
 在现实中，由于通信延迟、调度延迟等，往往导致 Event Time 和 Processing Time 之间存在差值（skew），且动态变化。skew 一般使用 watermark 来进行可视化，如下图。
 
-![img](Flink运行架构.assets/stsy_0101.png)
+![img](Flink运行架构.assets/stsy_0209.png)
+
+那条蜿蜒的红线本质上是水位线，随着处理时间的推移，它描述了事件时间完整性的进度。从概念上讲，可以将水印视为函数*F*（*P*）→ *E*，它在处理时间并返回事件时间点，事件时间*E的*那个点是系统认为事件时间小于*E的*所有输入都被观测到的时间点，换而言之，所有事件时间小于Watermark的数据都已经达到了，而任务在接收到的小于Watermark的数据可称为延迟数据。所以Watermark永远是单调递增的，因为`时光不会倒流`。
 
 #### window
 
@@ -88,9 +90,11 @@ Window，也就是窗口，将一部分数据集合组合起操作。在处理�
 
 这一节来讨论一下 Dataflow 模型的形式化定义，并解释为什么足够通用，可以同时支持批和流等系统。
 
+#### Core Primitives
 
+Dataflow 针对 (key, value) 数据对提供了两种基本的操作原语：**ParDo** 和 **GroupByKey**。
 
-#### 
+ 
 
 #### 
 
