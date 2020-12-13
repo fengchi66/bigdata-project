@@ -1,8 +1,4 @@
-Flink运行架构
-
-## [Flink分层API](https://ci.apache.org/projects/flink/flink-docs-release-1.12/zh/concepts/index.html)
-
-## DataFlow
+# DataFlow模型
 
 毫无疑问，Apache Flink 和 Apache Spark （Structured Streaming）现在是实时流计算领域的两个最火热的话题了。那么为什么要介绍 Google Dataflow 呢？***Streaming Systems*** 这本书在分析 Flink 的火热原因的时候总结了下面两点：
 
@@ -29,23 +25,16 @@ Dataflow 模型的核心点在于：
 
 - 对于无序的流式数据提供基于 event-time 的顺序处理、基于数据本身的特征进行窗口聚合处理的能力，以及平衡正确性、延迟、成本之间的相互关系。
 - 解构数据处理的四个维度，方便我们更好的分析问题：
-  - **What** results are being computed
-  - **Where** in event time they are been computed
-  - **When** in processing time they are materialized
-  - **How** earlier results relate to later refinements
-
-- 将数据处理中的逻辑概念和底层物理实现解耦
-
-具体来说，主要包括以下几部分：
+  - **What** results are being computed. => Transformation
+  - **Where** in event time they are been computed. => Window
+  - **When** in processing time they are materialized. => Watermark and Trigger
+  - **How** earlier results relate to later refinements. => Discarding, Accumulating, Accumulating & Retracting.
 
 - **Windowing Model**，支持非对齐的 event time 的窗口聚合
 - **Triggering Model**，提供强大和灵活的声明式 API 来描述 Trigger 语义，可以根据事件处理的运行时特征来决定输出次数。
 - **Incremental Processing Model**，将数据的更新整合到上面的 **Window** 模型和 **Trigger** 模型中。
 - **Scalable implementation**，基于 MillWheel 流式引擎和 Flume 批处理引擎实现的 Google Dataflow SDK，用户无需感知底层系统。
 - **Core Principle**，模型设计的核心原则。
-- 最后是案例分析。
-
-
 
 ### 核心概念
 
@@ -85,20 +74,6 @@ Window，也就是窗口，将一部分数据集合组合起操作。在处理�
 - Session Window
 
   Session Window，会话窗口， 会话由事件序列组成，这些事件序列以大于某个超时的不活动间隔终止（两边等），回话窗口不能事先定义，取决于数据流。一般用来捕捉一段时间内的行为，比如 Web 中一段时间内的登录行为为一个 Session，当长时间没有登录，则 Session 失效，再次登录重启一个 Session。Session Window 也是用超时时间来衡量，只要在超时时间内发生的事件都认为是一个 Session Window。
-
-### Dataflow Model
-
-这一节来讨论一下 Dataflow 模型的形式化定义，并解释为什么足够通用，可以同时支持批和流等系统。
-
-#### Core Primitives
-
-Dataflow 针对 (key, value) 数据对提供了两种基本的操作原语：**ParDo** 和 **GroupByKey**。
-
- 
-
-#### 
-
- 
 
 
 
