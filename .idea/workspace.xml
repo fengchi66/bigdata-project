@@ -4,6 +4,7 @@
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/docs/flink/Flink运行架构.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +65,7 @@
       <workItem from="1607677965354" duration="429000" />
       <workItem from="1607690274171" duration="1204000" />
       <workItem from="1607776037104" duration="1412000" />
-      <workItem from="1607790306719" duration="2107000" />
+      <workItem from="1607790306719" duration="2408000" />
     </task>
     <servers />
   </component>
