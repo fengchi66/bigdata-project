@@ -5,6 +5,8 @@ object Test {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
 
     env.addSource(new Source).assignAscendingTimestamps(_.ts)
+
+
   }
 
 }

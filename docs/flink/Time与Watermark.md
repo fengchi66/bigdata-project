@@ -91,35 +91,30 @@ Dataflow模型从流处理的角度来审视数据处理流程，将批和流处
 
   ```scala
   class PeriodicAssigner extends AssignerWithPeriodicWatermarks[SensorReading] {
-  val bound: Long = 60 * 1000 // 延时为1分钟
-  var maxTs: Long = Long.MinValue // 观察到的最大时间戳
+    val bound: Long = 60 * 1000 // 延时为1分钟
+    var maxTs: Long = Long.MinValue // 观察到的最大时间戳
   
-  override def getCurrentWatermark: Watermark = {
-  new Watermark(maxTs - bound)
-  }
+    override def getCurrentWatermark: Watermark = {
+      new Watermark(maxTs - bound)
+    }
   
-  override def extractTimestamp(r: SensorReading, previousTS: Long) = {
-  maxTs = maxTs.max(r.timestamp)
-  r.timestamp
-  }
+    override def extractTimestamp(r: SensorReading, previousTS: Long) = {
+      maxTs = maxTs.max(r.timestamp)
+      r.timestamp
+    }
   }
   ```
 
 - Flink内置Watermark生成器
 
   ```scala
-  env.addSource(FlinkUtils.getFlinkKafkaConsumer())
-        .map(line => {
-          val arr = line.split(",", -1)
-          UserBehavior(arr(0).trim.toLong, arr(1).trim.toLong, arr(2).trim.toInt, arr(3), arr(4).toLong)
-        }).filter(_.behavior == "pv")
-        // 分配eventTime与设置waterMark
+      env.addSource(FlinkUtils.getFlinkKafkaConsumer())
         .assignTimestampsAndWatermarks(
           new BoundedOutOfOrdernessTimestampExtractor[UserBehavior](Time.seconds(2)) { //设置延时时长
             override def extractTimestamp(t: UserBehavior): Long = t.timestamp
           })
   ```
-
+  
   
 
 ### Watermark的传递
@@ -132,4 +127,4 @@ Dataflow模型从流处理的角度来审视数据处理流程，将批和流处
 
 - Flink的水位处理和传递算法，确保了算子任务发出的时间戳和watermark是“对齐”的。不过它依赖一个条件，**`那就是所有分区都会提供不断增长的watermark`**。一旦一个分区不再推进水位线的上升，或者完全处于空闲状态、不再发送任何数据和watermark，任务的事件时间时钟就将停滞不前，任务的定时器也就无法触发了。
 
-- 理解这一点非常重要，在生产环境中，消费Kafka中数据，一般来说，任务并行度会设置为与Kafka Partition数量一致，当分区数据倾斜严重时，会严重影响整个任务的计算；`当某分区没有数据时，整个任务都不会触发计算`，如果做双流Join，可能会遇到A流Watermark更新，但B流Watermark不更新的情况，导致整个任务停滞不前。所以应该尽量避免这种情况，良好的系统设计才是关键。
+- 理解这一点非常重要，在生产环境中，消费Kafka中数据，一般来说，任务并行度会设置为与Kafka Partition数量一致，当分区数据倾斜严重时，会严重影响整个任务的计算；**`当某分区没有数据时，整个任务都不会触发计算`**，如果做双流Join，可能会遇到A流Watermark更新，但B流Watermark不更新的情况，导致整个任务停滞不前。所以应该尽量避免这种情况，良好的系统设计才是关键。
