@@ -1,3 +1,11 @@
+* [Time与Watermark](#time与watermark)
+  * [时间语义](#时间语义)
+  * [Watermark](#watermark)
+    * [Watermark的类型](#watermark的类型)
+      * [完美式Watermark](#完美式watermark)
+      * [启发式Watermark](#启发式watermark)
+    * [Watermark的传递](#watermark的传递)
+
 # Time与Watermark
 
 Dataflow模型从流处理的角度来审视数据处理流程，将批和流处理的数据抽象成数据集的概念，并将数据集划分为无界数据集和有界数据集，认为流处理是批处理的超集。模型定义了时间域（time domain）的概念，将时间明确的区分为事件时间（`event-time`）和处理时间（`process-time`）。
