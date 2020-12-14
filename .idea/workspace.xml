@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/flink/Flink运行架构.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/flink/DataFlow模型.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,8 @@
       <workItem from="1607677965354" duration="429000" />
       <workItem from="1607690274171" duration="1204000" />
       <workItem from="1607776037104" duration="1412000" />
-      <workItem from="1607790306719" duration="4399000" />
+      <workItem from="1607790306719" duration="4895000" />
+      <workItem from="1607913518999" duration="37000" />
     </task>
     <servers />
   </component>
@@ -73,13 +72,15 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1800" y="-92" key="SettingsEditor" timestamp="1607827507916">
-      <screen x="1440" y="-180" width="1920" height="1080" />
+    <state x="241" y="0" width="1199" height="900" key="SettingsEditor" timestamp="1607913526983">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="241" y="0" width="1199" height="900" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1607913526983" />
     <state x="1800" y="-92" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607827507916" />
-    <state x="1998" y="152" key="com.intellij.ide.util.TipDialog" timestamp="1607790306669">
-      <screen x="1440" y="-180" width="1920" height="1080" />
+    <state x="419" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1607913518893">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="419" y="277" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1607913518893" />
     <state x="1998" y="332" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607677965432" />
     <state x="1998" y="314" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.0.1920.1020@1440.0.1920.1020" timestamp="1607677248663" />
     <state x="1998" y="331" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1607396933246" />
