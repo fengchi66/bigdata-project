@@ -2,6 +2,8 @@
 
 回到Dataflow的思想，从流处理的角度来审视数据处理过程。对于无边界数据的处理，**`Where:Where in event time are results calculated?`** 计算什么时间(event time)范围的数据，答案是：通过使用pipeline中的event time窗口。
 
+>事实上，Flink官网对Window的讲解以及只用已经足够详细了，总结这篇文章完全是多余，一定要阅读[Flink官网-Window](https://ci.apache.org/projects/flink/flink-docs-release-1.12/zh/dev/stream/operators/windows.html)。
+
 ## Window分类
 
 Window，也就是窗口，将一部分数据集合组合起操作。在处理无限数据集的时候有限操作需要窗口，比如 **aggregation**，**outer join**，**time-bounded** 操作。窗口大部分都是基于时间来划分，但是也有基于其他存在逻辑上有序关系的数据来划分的。窗口模型主要由三种：**Fixed Window**，**Sliding Window**，**Session Window**。
