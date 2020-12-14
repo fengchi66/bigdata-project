@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="" />
+    <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/flink-demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flink-demo/src/main/scala/Test.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/flink/Time与Watermark.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/flink/Time与Watermark.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +34,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -63,7 +70,7 @@
       <workItem from="1607776037104" duration="1412000" />
       <workItem from="1607790306719" duration="4895000" />
       <workItem from="1607913518999" duration="37000" />
-      <workItem from="1607929302189" duration="1059000" />
+      <workItem from="1607929302189" duration="1671000" />
     </task>
     <servers />
   </component>
@@ -71,6 +78,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1607941365180">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607941365180" />
     <state x="241" y="0" width="1199" height="900" key="SettingsEditor" timestamp="1607913526983">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -85,9 +96,10 @@
     <state x="1998" y="331" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1607396933246" />
     <state x="1998" y="151" key="com.intellij.ide.util.TipDialog/1440.-155.1920.995/0.25.1440.875@1440.-155.1920.995" timestamp="1607360147391" />
     <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607790306669" />
-    <state x="0" y="25" key="new project wizard" timestamp="1607265897495">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="1440" y="0" key="new project wizard" timestamp="1607941308685">
+      <screen x="1440" y="0" width="1920" height="1080" />
     </state>
+    <state x="1440" y="0" key="new project wizard/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607941308685" />
     <state x="0" y="25" key="new project wizard/1440.-155.1920.995/0.25.1440.875@0.25.1440.875" timestamp="1607265897495" />
   </component>
 </project>
