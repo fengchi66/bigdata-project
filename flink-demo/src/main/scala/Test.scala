@@ -4,7 +4,7 @@ object Test {
   def main(args: Array[String]): Unit = {
     val env = StreamExecutionEnvironment.getExecutionEnvironment
 
-    env.addSource(new Source).assignAscendingTimestamps(_.ts)
+//    env.addSource(new Source).assignAscendingTimestamps(_.ts)
   }
 
 }

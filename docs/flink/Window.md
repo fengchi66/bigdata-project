@@ -464,3 +464,52 @@ stream.countWindowAll(20, 10)…
 
   ![image-20201215172027772](Window.assets/image-20201215172027772.png)
 
+代码实现，在这里AggregateFunction结合ProcessWindowFunction使用，增量聚合的同时发出窗口的元数据(窗口开始时间)。
+
+```scala
+    val list = List(
+      UserEventCount(1, DateUtil.formatStringToTs("2020-12-15 12:00"), 1),
+      UserEventCount(1, DateUtil.formatStringToTs("2020-12-15 12:04"), 2),
+      UserEventCount(1, DateUtil.formatStringToTs("2020-12-15 12:03"), 3),
+      UserEventCount(1, DateUtil.formatStringToTs("2020-12-15 12:08"), 4),
+      UserEventCount(1, DateUtil.formatStringToTs("2020-12-15 12:10"), 5)
+    )
+
+    env.fromCollection(list)
+      .assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor[UserEventCount](Time.minutes(2)) {
+      override def extractTimestamp(t: UserEventCount): Long = t.timestamp
+    })
+        .keyBy(_.id)
+        .window(TumblingEventTimeWindows.of(Time.minutes(5)))
+        .aggregate(new AggCountFunc, new WindowResult)
+        .print()
+
+    env.execute("job")
+  }
+
+  class AggCountFunc extends AggregateFunction[UserEventCount, (Int, Int), (Int, Int)] {
+    override def createAccumulator(): (Int, Int) = (0, 0)
+
+    override def add(in: UserEventCount, acc: (Int, Int)): (Int, Int) = (in.id, in.count + acc._2)
+
+    override def getResult(acc: (Int, Int)): (Int, Int) = acc
+
+    override def merge(acc: (Int, Int), acc1: (Int, Int)): (Int, Int) = (acc._1, acc._2 + acc1._2)
+  }
+
+  class WindowResult extends ProcessWindowFunction[(Int, Int), (String, Int, Int), Int, TimeWindow] {
+    override def process(key: Int, context: Context, elements: Iterable[(Int, Int)], out: Collector[(String, Int, Int)]): Unit = {
+      // 输出窗口开始时间
+      val windowStart = DateUtil.formatTsToString(context.window.getStart)
+      val userId = elements.head._1
+      val count = elements.head._2
+      out.collect((windowStart, userId, count))
+    }
+  }
+
+结果输出:
+(2020-12-15 12:00,1,6)
+(2020-12-15 12:05,1,4)
+(2020-12-15 12:10,1,5)
+```
+
