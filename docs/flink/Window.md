@@ -428,8 +428,6 @@ stream.timeWindowAll(Time.seconds(10))…
 stream.countWindowAll(20, 10)…
 ```
 
-
-
 ## Window Trigger
 
 触发器（Trigger）决定了何时启动 Window Function 来处理窗口中的数据以及何时将窗口内的数据清理。每个`WindowAssigner`都有一个默认`Trigger`
@@ -651,4 +649,29 @@ public abstract class Trigger<T, W extends Window> implements Serializable {
   
 
 ####  DeltaTrigger
+
+DeltaTrigger具有一个DeltaFunction，该函数的逻辑需要用户自己定义。该函数比较上一次触发计算的元素，和目前到来的元素。比较结果为一个double类型阈值。如果阈值超过DeltaTrigger配置的阈值，会返回TriggerResult.FIRE
+
+案例需求：
+
+- 需求：车辆区间测速
+- 描述：车辆每分钟上报位置与车速，没行进10公里，计算车间内最高车速。
+
+以下是简单的代码实现:
+
+<img src="Window.assets/image-20201215235435915.png" alt="image-20201215235435915" style="zoom:50%;" />
+
+- 如何提取时间戳和生成水印，以及选择聚合维度就不赘述了。这个场景不是传统意义上的时间窗口或数量窗口，可以创建一个 **`GlobalWindow(默认情况下该窗口永远不会触发)`**，所有数据都在一个窗口中，我们通过定义一个 DeltaTrigger，并设定一个阈值，这里是10000（米）。每个元素和上次触发计算的元素比较是否达到设定的阈值，这里比较的是每个元素上报的位置，如果达到了10000（米），那么当前元素和上一个触发计算的元素之间的所有元素落在同一个窗口里计算，然后可以通过 Max 聚合计算出最大的车速。
+
+
+
+### 总结
+
+虽然Flink提供了以上各种内置实现的Window Trigger，但其实大部分场景下都不会用到，一般来说默认的Trigger已经够用了；但如果需要自定义实现Trigger，只需要看一下Trigger在源码中的定义，自己实现就可以了。
+
+<img src="Window.assets/image-20201216000133111.png" alt="image-20201216000133111" style="zoom: 33%;" />
+
+
+
+## Window Evictor
 

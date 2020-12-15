@@ -8,7 +8,7 @@ import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.api.scala.function.ProcessWindowFunction
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows
 import org.apache.flink.streaming.api.windowing.time.Time
-import org.apache.flink.streaming.api.windowing.triggers.{ContinuousEventTimeTrigger, PurgingTrigger}
+import org.apache.flink.streaming.api.windowing.triggers.{ContinuousEventTimeTrigger, EventTimeTrigger, PurgingTrigger}
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow
 import org.apache.flink.util.Collector
 
@@ -37,8 +37,10 @@ object EventTimeTriggerDemo {
     })
         .keyBy(_.id)
         .window(TumblingEventTimeWindows.of(Time.minutes(5)))
-        .trigger(PurgingTrigger.of(ContinuousEventTimeTrigger.of(Time.minutes(2))))
-        .aggregate(new AggCountFunc)
+//        .trigger(EventTimeTrigger.create())
+//        .trigger(ContinuousEventTimeTrigger.of(Time.minutes(2)))
+//        .trigger(PurgingTrigger.of(ContinuousEventTimeTrigger.of(Time.minutes(2))))
+        .process(new WindowFunc)
         .print()
 
     env.execute("job")
@@ -61,6 +63,14 @@ object EventTimeTriggerDemo {
       val userId = elements.head._1
       val count = elements.head._2
       out.collect((windowStart, userId, count))
+    }
+  }
+
+  class WindowFunc extends ProcessWindowFunction[UserEventCount, (String, Int, Int), Int, TimeWindow] {
+    override def process(key: Int, context: Context, elements: Iterable[UserEventCount], out: Collector[(String, Int, Int)]): Unit = {
+      val count = elements.map(_.count).sum
+      val windowStart = DateUtil.formatTsToString(context.window.getStart)
+      out.collect((windowStart, key, count))
     }
   }
 
