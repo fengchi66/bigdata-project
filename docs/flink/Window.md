@@ -448,13 +448,106 @@ stream.countWindowAll(20, 10)…
 - 在上面的基础之上，又延伸出来两种，叫做ContinuousProcessingTimeTrigger和ContinuousEventTimeTrigger，他们的特点是多次触发，比如ContinuousEventTimeTrigger会基于Event time的**`固定时间间隔`**触发。
 - CountTrigger，是基于接入事件元素的固定条数，比如说每接入100条触发一次，那么Elements的固定条数，就是CountTrigger里面所需要依赖的条件。
 - DeltaTrigger，是基于我们本次数据元素和上次触发Trigger的数据元素之间做一个Delta的计算，Delta计算出来的结果会和一个指定的Threshold进行对比，如果超过了指定的Threshold指标，此时窗口触发计算。
-- PuringTrigger，是需要去基于前面提到的
+- PuringTrigger，是需要去基于前面提到的触发器来实现。
+
+
+
+### TriggerResult
+
+每次调用触发器都会生成一个TriggerResult，它用于决定窗口接下来的行为。 TriggerResult可以是以下值之一：
+
+- **`CONTINUE`** 什么都不做
+
+- **`FIRE`** 如果窗口算子配置了ProcessWindowFunction，就会调用该函数并发出结果；如果窗口只包含一个增量聚合函数，则直接发出当前聚合结果。窗口状态不会发出任何变化。
+
+- **`PURGE`** 完全清除窗口内容，并删除窗口自身及其元数据。同时调用ProcessWindowFunction.clear()来清理那些自定义的单个窗口状态。
+
+- **`FIRE_AND_PURGE`** 先进行窗口计算（FIRE），随后删除所有状态及元数据（PURGE）。
+
+
+
+### Trigger接口
+
+```scala
+public abstract class Trigger<T, W extends Window> implements Serializable {
+
+    private static final long serialVersionUID = -4104633972991191369L;
+
+    //    每当有元素加入到窗口时都会调用
+    public abstract TriggerResult onElement(T element, long timestamp, W window, TriggerContext ctx) throws Exception;
+
+    //    在处理时间计时器触发时调用
+    public abstract TriggerResult onProcessingTime(long time, W window, TriggerContext ctx) throws Exception;
+
+    //    在事件时间计时器触发时调用
+    public abstract TriggerResult onEventTime(long time, W window, TriggerContext ctx) throws Exception;
+
+    //    如果计时器支持合并触发器状态则返回true
+    public boolean canMerge() {
+        return false;
+    }
+
+    //    当多个窗口合并为一个窗口
+    //    且需要合并触发器状态时调用
+    public void onMerge(W window, OnMergeContext ctx) throws Exception {
+        throw new UnsupportedOperationException("This trigger does not support merging.");
+    }
+
+    //  在触发器中清除那些为给定窗口保存的状态
+    //    该方法会在清除窗口时调用
+    public abstract void clear(W window, TriggerContext ctx) throws Exception;
+
+    //    用于触发器中方法的上下文对象，使其可以注册定时器回调并处理状态
+    public interface TriggerContext {
+
+        //        返回当前处理时间
+        long getCurrentProcessingTime();
+
+        MetricGroup getMetricGroup();
+
+        //返回当前水位线时间
+        long getCurrentWatermark();
+
+        //注册一个处理时间定时器
+        void registerProcessingTimeTimer(long time);
+
+        //注册一个事件事件定时器
+        void registerEventTimeTimer(long time);
+
+        //删除一个处理时间定时器
+        void deleteProcessingTimeTimer(long time);
+
+        //删除一个事件时间定时器
+        void deleteEventTimeTimer(long time);
+
+        //获取一个作用域为触发器键值和当前窗口的状态对象
+        <S extends State> S getPartitionedState(StateDescriptor<S, ?> stateDescriptor);
+
+        @Deprecated
+        <S extends Serializable> ValueState<S> getKeyValueState(String name, Class<S> stateType, S defaultState);
+
+        @Deprecated
+        <S extends Serializable> ValueState<S> getKeyValueState(String name, TypeInformation<S> stateType, S defaultState);
+    }
+
+    //用于Trigger.onMerge()方法的TriggerContext扩展
+    public interface OnMergeContext extends TriggerContext {
+        <S extends MergingState<?, ?>>
+        //        合并触发器中的单个窗口状态
+        //        目标状态自身需要支持合并
+        void mergePartitionedState(StateDescriptor<S, ?> stateDescriptor);
+    }
+}
+
+```
+
+
 
 ### Window Trigger触发机制
 
 先来看看在实际生产环境中最常用的Trigger：EventTimeTrigger是如何工作的
 
-#### EventTimeTrigger触发机制
+#### EventTimeTrigger
 
 以下案例中，左边是输入的数据，event time从12：00到12：10，它的指标有1、2、3、4、5，对应的Watermark的延迟限制是2分钟，这个时候会通过window assigner去分配对应的窗口，这里定义滚动窗口，并定义窗口大小是5分钟。
 
@@ -512,4 +605,50 @@ stream.countWindowAll(20, 10)…
 (2020-12-15 12:05,1,4)
 (2020-12-15 12:10,1,5)
 ```
+
+
+
+#### ContinuousEventTimeTrigger
+
+- 需求，每隔两分钟触发一次计算，发出结果:
+
+![image-20201215190623569](Window.assets/image-20201215190623569.png)
+
+- 在上面的核心代码处，修改：
+
+```scala
+				DataStream(...)
+				.keyBy(_.id)
+        .window(TumblingEventTimeWindows.of(Time.minutes(5)))
+				// 使用ContinuousEventTimeTrigger，基于EventTime每隔2分钟触发一次计算
+        .trigger(ContinuousEventTimeTrigger.of(Time.minutes(2)))
+        .aggregate(new AggCountFunc, new WindowResult)
+        .print()
+```
+
+
+
+- 输出：
+
+  ```scala
+  (2020-12-15 12:00,1,6)
+  (2020-12-15 12:00,1,6)
+  (2020-12-15 12:00,1,6)
+  (2020-12-15 12:05,1,4)
+  (2020-12-15 12:10,1,5)
+  (2020-12-15 12:10,1,5)
+  (2020-12-15 12:10,1,5)
+  ```
+
+  可见，每两分钟触发一次计算，但每个窗口每次输出的结果是全量的窗口的结果。
+
+- 和上面的示例一样，唯一的不同是在 ContinuousEventTimeTrigger 外面包装了一个 PurgingTrigger，其作用是在 ContinuousEventTimeTrigger 触发窗口计算之后将窗口的 State 中的数据清除。具体作用为：如果被包装的trigger触发返回FIRE，则PurgingTrigger将返回修改为FIRE_AND_PURGE，其他的返回值不做处理。
+
+  ```scala
+  .trigger(PurgingTrigger.of(ContinuousEventTimeTrigger.of(Time.minutes(2))))
+  ```
+
+  
+
+####  DeltaTrigger
 
