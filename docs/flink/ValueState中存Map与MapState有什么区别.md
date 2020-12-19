@@ -226,7 +226,7 @@ key2 序列化后的二进制为 0x1122， namespace2 序列化后的二进制�
 
 Flink 中 TTL 的实现，都是将用户的 value 封装了一层，具体参考下面的 TtlValue 类：
 
-```
+```java
 public class TtlValue<T> implements Serializable {
  @Nullable
  private final T userValue;
