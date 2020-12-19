@@ -675,3 +675,33 @@ DeltaTrigger具有一个DeltaFunction，该函数的逻辑需要用户自己定�
 
 ## Window Evictor
 
+Evictors是Flink窗口机制中的一个**``可选组件``**，可用于在窗口执行计算前后从窗口中删除元素。
+
+```scala
+public interface Evictor<T, W extends Window> extends Serializable {
+    //    选择性移除元素，在窗口函数之前调用
+    void evictBefore(Iterable<TimestampedValue<T>> elements,
+                     int size,
+                     W window,
+                     Evictor.EvictorContext evictorContext);
+
+    //选择性移除元素，在窗口函数之后调用
+    void evictAfter(Iterable<TimestampedValue<T>> elements,
+                    int size,
+                    W window,
+                    Evictor.EvictorContext evictorContext);
+
+    //    用于移除器内方法的上下文
+    interface EvictorContext {
+        //        返回当前处理时间
+        long getCurrentProcessingTime();
+
+        MetricGroup getMetricGroup();
+
+        //        返回当前事件事件水位线
+        long getCurrentWatermark();
+    }
+}
+
+```
+
