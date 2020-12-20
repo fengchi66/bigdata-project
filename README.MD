@@ -58,6 +58,7 @@
 
 ## 实时数仓
 [ValueState中存Map与MapState有什么区别](docs/flink/ValueState中存Map与MapState有什么区别.md)
+[网易游戏基于 Flink 的流式 ETL 建设](https://mp.weixin.qq.com/s/R4dpdSGNzgE-uvlvo09ulA)
 
 ## Apache Beam
 
