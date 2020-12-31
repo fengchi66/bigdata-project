@@ -39,6 +39,8 @@
 
 [3.ClickHouse的数据结构](docs/clickhouse/ClickHouse数据结构.md)
 
+[如何选择clickhouse表引擎](docs/clickhouse/如何选择clickhouse表引擎.md)
+
 - 企业实践
 
 [ClickHouse 在字节跳动的技术应用与实践-直播回放](https://www.ixigua.com/6853991019050959371/)
