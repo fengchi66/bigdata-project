@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/flink-demo/src/main/scala/com/bigdata/flink/datastream/step/Check.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/flink/Window.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/flink/Window.md" afterDir="false" />
     </list>
@@ -108,7 +107,8 @@
       <workItem from="1608089677853" duration="175000" />
       <workItem from="1608388890782" duration="1415000" />
       <workItem from="1609419415067" duration="631000" />
-      <workItem from="1609639473136" duration="659000" />
+      <workItem from="1609639473136" duration="1158000" />
+      <workItem from="1609664213521" duration="39000" />
     </task>
     <servers />
   </component>
