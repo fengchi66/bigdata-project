@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/clickhouse/如何选择clickhouse表引擎.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flink-demo/src/main/scala/com/bigdata/flink/datastream/step/Check.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/flink/Window.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/flink/Window.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +107,8 @@
       <workItem from="1608023247171" duration="12644000" />
       <workItem from="1608089677853" duration="175000" />
       <workItem from="1608388890782" duration="1415000" />
-      <workItem from="1609419415067" duration="383000" />
+      <workItem from="1609419415067" duration="631000" />
+      <workItem from="1609639473136" duration="659000" />
     </task>
     <servers />
   </component>
@@ -178,7 +180,7 @@
     <state x="241" y="0" width="1199" height="900" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1607913526983" />
     <state x="1761" y="0" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1608000839208" />
     <state x="1800" y="-92" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1608037845656" />
-    <state x="419" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1609419415649">
+    <state x="419" y="277" key="com.intellij.ide.util.TipDialog" timestamp="1609639473703">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="419" y="277" key="com.intellij.ide.util.TipDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1607913518893" />
@@ -187,6 +189,7 @@
     <state x="1998" y="314" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.0.1920.1020@1440.0.1920.1020" timestamp="1607677248663" />
     <state x="1998" y="331" key="com.intellij.ide.util.TipDialog/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1607396933246" />
     <state x="1998" y="151" key="com.intellij.ide.util.TipDialog/1440.-155.1920.995/0.25.1440.875@1440.-155.1920.995" timestamp="1607360147391" />
+    <state x="419" y="277" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1609639473703" />
     <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607790306669" />
     <state x="1440" y="0" key="new project wizard" timestamp="1607941308685">
       <screen x="1440" y="0" width="1920" height="1080" />

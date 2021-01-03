@@ -667,7 +667,7 @@ DeltaTrigger具有一个DeltaFunction，该函数的逻辑需要用户自己定�
 
 ### 总结
 
-虽然Flink提供了以上各种内置实现的Window Trigger，但其实大部分场景下都不会用到，一般来说默认的Trigger已经够用了；但如果需要自定义实现Trigger，只需要看一下Trigger在源码中的定义，自己实现就可以了。
+虽然Flink提供了以上各种内置实现的  Window Trigger，但其实大部分场景下都不会用到，一般来说默认的Trigger已经够用了；但如果需要自定义实现Trigger，只需要看一下Trigger在源码中的定义，自己实现就可以了。
 
 <img src="Window.assets/image-20201216000133111.png" alt="image-20201216000133111" style="zoom: 33%;" />
 
@@ -675,7 +675,21 @@ DeltaTrigger具有一个DeltaFunction，该函数的逻辑需要用户自己定�
 
 ## Window Evictor
 
-Evictors是Flink窗口机制中的一个**``可选组件``**，可用于在窗口执行计算前后从窗口中删除元素。
+Evictor叫做数据清除器，是Flink窗口机制中的一个**`可选组件`**，可用于在窗口执行计算前后从窗口中删除元素。
+
+- 当数据接入到window之后，可以去调用相应的Evictor将不需要的数据删除，这个时候保证ProcessingFunction输入的数据的有效性。
+
+- 对应的，Evictor也可以用在ProcessingFunction之后，所以在ProcessingFunction之前和之后都可以使用Evictor进行相应的数据drop的操作。
+
+- Flink官方提供的一些Window Evictor
+
+  | Evictor名称  | 功能描述                                                     |
+  | ------------ | ------------------------------------------------------------ |
+  | CountEvictor | 保留一定数目的元素，多余的元素按照从前到后的顺序先后清理     |
+  | TimeEvictor  | 保留一个时间段的元素，早于这个时间段的元素会被清理           |
+  | DeltaEvictor | 窗口计算时，最近一条Element和其他Element做Delta计算，仅保留Delta 结果在指定Threshold内Element |
+
+<img src="Window.assets/image-20210103103925904.png" alt="image-20210103103925904" style="zoom:50%;" />
 
 ```scala
 public interface Evictor<T, W extends Window> extends Serializable {
@@ -685,7 +699,7 @@ public interface Evictor<T, W extends Window> extends Serializable {
                      W window,
                      Evictor.EvictorContext evictorContext);
 
-    //选择性移除元素，在窗口函数之后调用
+    //		选择性移除元素，在窗口函数之后调用
     void evictAfter(Iterable<TimestampedValue<T>> elements,
                     int size,
                     W window,
@@ -693,12 +707,12 @@ public interface Evictor<T, W extends Window> extends Serializable {
 
     //    用于移除器内方法的上下文
     interface EvictorContext {
-        //        返回当前处理时间
+        //		返回当前处理时间 
         long getCurrentProcessingTime();
 
         MetricGroup getMetricGroup();
 
-        //        返回当前事件事件水位线
+        //		返回当前事件事件水位线
         long getCurrentWatermark();
     }
 }
