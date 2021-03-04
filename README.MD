@@ -44,7 +44,12 @@
 - 企业实践
 
 [ClickHouse 在字节跳动的技术应用与实践-直播回放](https://www.ixigua.com/6853991019050959371/)
-[Clickhouse在字节跳动推荐和广告业务中的实时应用](https://mp.weixin.qq.com/s/yEnsXPtERMh7tBwvxx8GVw)
+
+[1.字节跳动ClickHouse在用户增长分析场景的应用](https://mp.weixin.qq.com/s/J0j0LM3ZDj4OP7SyYCWCEQ)
+
+[2.沙龙回顾｜ClickHouse 在字节广告 DMP& CDP 的应用](https://mp.weixin.qq.com/s/lYjIfKS8k9ZHPrxBRYOBrw)
+
+[3.沙龙回顾｜ClickHouse 在实时场景的应用和优化](https://mp.weixin.qq.com/s/hqUCFSr8cu3x3u8HCA6WYg)
 
 
 ## Streaming System
