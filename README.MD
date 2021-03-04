@@ -44,6 +44,7 @@
 - 企业实践
 
 [ClickHouse 在字节跳动的技术应用与实践-直播回放](https://www.ixigua.com/6853991019050959371/)
+[Clickhouse在字节跳动推荐和广告业务中的实时应用](https://mp.weixin.qq.com/s/yEnsXPtERMh7tBwvxx8GVw)
 
 
 ## Streaming System
