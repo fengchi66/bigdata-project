@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/clickhouse/ClickHouse.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/clickhouse/ClickHouse.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/clickhouse/ClickHouse数据结构.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/clickhouse/ClickHouse数据结构.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/深度学习推荐系统/03深度学习基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/深度学习推荐系统/03深度学习基础.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +125,8 @@
       <workItem from="1610861072041" duration="94000" />
       <workItem from="1610876231288" duration="1476000" />
       <workItem from="1613914833022" duration="436000" />
-      <workItem from="1614865890175" duration="907000" />
+      <workItem from="1614865890175" duration="1467000" />
+      <workItem from="1615132542864" duration="21000" />
     </task>
     <servers />
   </component>

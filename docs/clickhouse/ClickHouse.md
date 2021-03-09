@@ -160,6 +160,8 @@ ClickHouse非常适用于商业智能领域，除此之外，它也能够被广�
   docker run -it --rm --link ch-server:clickhouse-server yandex/clickhouse-client --host clickhouse-server --password 123456
   ```
 
+  
+
 3. 测试
 
    - 查看数据库

@@ -29,7 +29,7 @@ SELECT * FROM system.data_type_families
 
 上面的系统表，存储了ClickHouse所支持的数据类型，注意不同版本的ClickHouse可能数据类型会有所不同，具体如下表所示：
 
-```
+```sql
 ┌─name────────────────────┬─case_insensitive─┬─alias_to────┐
 │ IPv6                    │                0 │             │
 │ IPv4                    │                0 │             │
