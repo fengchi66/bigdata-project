@@ -4,6 +4,8 @@
 ### Scala高级
 [隐式转换Implicit](docs/scala/隐式转换Implicit.md)
 
+[类型参数化](docs/scala/类型参数化.md)
+
 ## Flink
 
 ### 基础
