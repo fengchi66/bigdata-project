@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="design-pattern" />
         <module name="flink-demo" />
+        <module name="design-pattern" />
+        <module name="scala-demo" />
       </profile>
     </annotationProcessing>
   </component>

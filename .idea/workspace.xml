@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scala-demo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/ImplicitTest.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scala/隐式转换Implicit.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/隐式转换Implicit.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +131,7 @@
       <workItem from="1615132542864" duration="21000" />
       <workItem from="1615262196779" duration="209000" />
       <workItem from="1615474200438" duration="222000" />
-      <workItem from="1615706063269" duration="290000" />
+      <workItem from="1615706063269" duration="975000" />
     </task>
     <servers />
   </component>
@@ -144,10 +149,10 @@
     </state>
     <state x="2169" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1608028652527" />
     <state x="2169" y="-14" key="#com.intellij.ide.util.MemberChooser/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1608048407403" />
-    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1607941365180">
+    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1615729650372">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1607941365180" />
+    <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1615729650372" />
     <state width="1868" height="246" key="GridCell.Tab.0.bottom" timestamp="1610933989696">
       <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
@@ -217,10 +222,10 @@
     <state x="1998" y="151" key="com.intellij.ide.util.TipDialog/1440.-155.1920.995/0.25.1440.875@1440.-155.1920.995" timestamp="1607360147391" />
     <state x="419" y="277" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1609639473703" />
     <state x="1998" y="152" key="com.intellij.ide.util.TipDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1607790306669" />
-    <state x="1440" y="0" key="new project wizard" timestamp="1610876260091">
+    <state x="1440" y="0" key="new project wizard" timestamp="1615729615359">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
-    <state x="1440" y="0" key="new project wizard/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1610876260091" />
+    <state x="1440" y="0" key="new project wizard/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1615729615359" />
     <state x="0" y="25" key="new project wizard/1440.-155.1920.995/0.25.1440.875@0.25.1440.875" timestamp="1607265897495" />
     <state x="1981" y="48" width="838" height="1032" key="search.everywhere.popup" timestamp="1608029135696">
       <screen x="1440" y="0" width="1920" height="1080" />

@@ -11,6 +11,7 @@
     <modules>
         <module>flink-demo</module>
         <module>design-pattern</module>
+        <module>scala-demo</module>
     </modules>
 
     <properties>
