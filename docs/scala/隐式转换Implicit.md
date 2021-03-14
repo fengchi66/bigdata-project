@@ -4,6 +4,8 @@
 
 Scala的隐式转换最为核心的就是定义隐式函数，即implicit conversion function，定了隐式函数，在程序的一定作用域中scala会 自动调用。**`Scala会根据隐式函数的签名，在程序中使用到隐式函数参数定义的类型对象时，会自动调用隐式函数将其传入隐式函数，转换为另一种类型对象并返回，这就是scala的“隐式转换”`**。
 
+**当编译器第一次编译失败的时候，会在当前的环境中查找能让代码编译通过的方法，用于将类型进行转换，实现二次编译**
+
 
 
 # 隐式函数
@@ -60,6 +62,95 @@ case class MyRichInt(self: Int) {
 以上代码中，为Int类型增加了**myMax**、**myMin**方法，同时将自身作为函数的来使用。
 
 
+
+同样是扩展类库的功能，来看一个生产中的代码设计，Flink中实现双流Join是比较常见的需求，order流和item流实现双流join，其中order为主流，我们为order流扩展一个join item流的函数。
+
+**`隐式函数设计:`**
+
+```scala
+implicit def joinSalesFlatOrderItem(source: DataStream[SalesFlatOrder])
+  : SalesFlatOrderAndSalesFlatOrderItemMerger = {
+    SalesFlatOrderAndSalesFlatOrderItemMerger(source)
+  }
+```
+
+通过隐式函数定义，我们试图将DataStream[SalesFlatOrder]转换为SalesFlatOrderAndSalesFlatOrderItemMerger类型对象，同时本身,也就是我们所定义的`source`作为SalesFlatOrderAndSalesFlatOrderItemMerger类的形参传入使用。
+
+那么order流与item流的具体实现我们就在SalesFlatOrderAndSalesFlatOrderItemMerger中实现了。
+
+**`双流join基类设计`**:
+
+从程序设计的规范来看，可以对实现双流join的类定义一个基类，它的作用就是接受两种类型的流，输出为另一种类型的流:
+
+```scala
+/**
+  * DataStream[T1] and DataStream[T2] to DataStream[T]
+  * @param source
+  * @tparam T1
+  * @tparam T2
+  * @tparam T
+  */
+abstract class Merger[T1 <: Model,T2 <: Model, T <: Model](source: DataStream[T1]) extends Serializable {
+  
+  def joinStream(input: DataStream[T2]): DataStream[T] = {
+    merge(source, input).uid(s"merge_${getName}")
+  }
+  
+  def getName: String
+  
+  protected def merge(input1: DataStream[T1], input2: DataStream[T2]): DataStream[T]
+}
+```
+
+以后所有要实现双流join的类只需要继承**Merger**类，在`merge函数`中去实现具体业务就行了。
+
+**`使用`**
+
+```scala
+			streamA
+      .joinStream(streamB)
+      .joinStream(streamC)
+      .joinStream(streamD)
+```
+
+- streamA是一个DataStream，并没有joinStream()的方法，当streamA调用类中不存在的方法或成员时，会自动将对象进行隐式转换，也就是转换为了SalesFlatOrderAndSalesFlatOrderItemMerger类型。
+- SalesFlatOrderAndSalesFlatOrderItemMerger类继承于Merger类，基于多态的特性，就可以直接使用joinStream()方法并且将streamB当成参数传入了，也就是`streamA .joinStream(streamB)`的方式。
+
+## 注意
+
+如果转换存在二义性，则不会发生隐式转换
+
+- 对于隐式参数，如果查找范围内有两个该类型的变量，则编译报错。
+- 对于隐式转换，如果查找范围内有两个从A类型到B类型的隐式转换，则编译报错。
+
+
+
+# 隐式参数
+
+普通方法或者函数中的参数可以通过**`implicit`**关键字声明为隐式参数，调用该方法时，就可以传入该参数，编译器会在相应的作用域寻找符合条件的隐式值。
+
+
+
+隐式参数说明:
+
+- 同一个作用域中，相同类型的隐式值只能有一个
+- 编译器按照隐式参数的类型去寻找对应类型的隐式值，与隐式值的名称无关
+- 隐式参数优先于默认参数
+
+```scala
+object TestImplicitParameter {
+
+    implicit val str: String = "hello world!"
+
+    def hello(implicit arg: String="good bey world!"): Unit = {
+        println(arg)
+    }
+
+    def main(args: Array[String]): Unit = {
+        hello
+    }
+}
+```
 
 
 

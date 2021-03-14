@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/ExpandLibraryTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/scala/隐式转换Implicit.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/隐式转换Implicit.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/Double2IntImplicitTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/Double2IntImplicitTest.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +156,7 @@
       <workItem from="1615262196779" duration="209000" />
       <workItem from="1615474200438" duration="222000" />
       <workItem from="1615706063269" duration="1334000" />
-      <workItem from="1615732403148" duration="1017000" />
+      <workItem from="1615732403148" duration="2316000" />
     </task>
     <servers />
   </component>
