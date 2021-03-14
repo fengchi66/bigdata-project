@@ -1,6 +1,8 @@
 # 大数据常用框架技术笔记
 
 ## Scala
+### Scala高级
+[隐式转换Implicit](docs/scala/隐式转换Implicit.md)
 
 ## Flink
 

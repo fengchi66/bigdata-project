@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/clickhouse/ClickHouse教程.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/clickhouse/ClickHouse教程.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,8 @@
       <workItem from="1614865890175" duration="1467000" />
       <workItem from="1615132542864" duration="21000" />
       <workItem from="1615262196779" duration="209000" />
-      <workItem from="1615474200438" duration="46000" />
+      <workItem from="1615474200438" duration="222000" />
+      <workItem from="1615706063269" duration="290000" />
     </task>
     <servers />
   </component>
