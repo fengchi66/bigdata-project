@@ -154,7 +154,39 @@ object TestImplicitParameter {
 
 
 
+## 隐式转换作为隐式参数
 
+下面的代码给定的是一个普通的比较函数:
+
+```scala
+object ImplicitParameter extends App {
+
+  def compare[T](first:T, second:T): T = {
+    if (first < second) first else second
+  }
+  
+}
+```
+
+以上代码不能直接使用，这里面泛型T没有具体指定，它不能直接使用。如果想编译通过，可以将当前类型变量视图界定指定其上界为Ordered[T]。
+
+```scala
+object ImplicitParameter extends App {
+  def compare[T<: Ordered[T]](first:T, second:T): T = {
+    if (first < second) first else second
+  }
+}
+```
+
+这是一种解决方案，我们还有一种解决方案就是通过隐式参数的隐式转换来实现，代码如下：
+
+```scala
+object ImplicitParameter extends App {
+  def compare[T](first:T, second:T)(implicit order:T => Ordered[T]): T = {
+    if (first < second) first else second
+  }
+}
+```
 
 
 
