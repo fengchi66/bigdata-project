@@ -79,7 +79,7 @@
 [网易游戏基于 Flink 的流式 ETL 建设](https://mp.weixin.qq.com/s/R4dpdSGNzgE-uvlvo09ulA)
 
 ## 对酒当歌
-[对风说爱你](docs/verseline/对风说爱你.md)
+[对风说爱你](docs/verseline /对风说爱你.md)
 
 
 
