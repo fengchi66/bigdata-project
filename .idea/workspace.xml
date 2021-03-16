@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/variance/Cell.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/IntWrapper.scala" beforeDir="false" afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/implicit_demo/IntWrapper.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scala/类型参数化.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/类型参数化.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1615739328339" duration="27000" />
       <workItem from="1615792995933" duration="3052000" />
       <workItem from="1615796477326" duration="693000" />
-      <workItem from="1615875287905" duration="465000" />
+      <workItem from="1615875287905" duration="2267000" />
     </task>
     <servers />
   </component>
