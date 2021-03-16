@@ -10,6 +10,9 @@ case class IntWrapper(i: Int) {
 }
 
 object IntWrapper {
+
+  List
+
   implicit val f =(i : Int) => List(i + 1)
   def main(args : Array[String]) :Unit = {
     //map使用隐式参数，编译器在当前可见作用域中查找到 f 作为map的参数
