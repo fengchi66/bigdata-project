@@ -4,7 +4,6 @@
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/scala/函数式编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/函数式编程.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/func/FunctionDemo01.scala" beforeDir="false" afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/func/FunctionDemo01.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +180,10 @@
       <workItem from="1615886716070" duration="5110000" />
       <workItem from="1615909194920" duration="162000" />
       <workItem from="1615909391354" duration="1630000" />
-      <workItem from="1615963626482" duration="2895000" />
+      <workItem from="1615963626482" duration="3555000" />
+      <workItem from="1615969837131" duration="74000" />
+      <workItem from="1615969928527" duration="1770000" />
+      <workItem from="1615974141796" duration="831000" />
     </task>
     <servers />
   </component>
