@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/func/PartialFunctionDemo01.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/scala/函数式编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/函数式编程.md" afterDir="false" />
     </list>
@@ -188,7 +187,7 @@
       <workItem from="1615969837131" duration="74000" />
       <workItem from="1615969928527" duration="1770000" />
       <workItem from="1615974141796" duration="2617000" />
-      <workItem from="1616038525929" duration="67000" />
+      <workItem from="1616038525929" duration="293000" />
     </task>
     <servers />
   </component>
