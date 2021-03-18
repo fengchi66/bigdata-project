@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/scala/函数式编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/函数式编程.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,9 @@
         <option value="https://github.com/fengchi66/bigdata-project.git" />
       </set>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://scala-decompiled/AnyVal.decompiled.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -187,7 +190,7 @@
       <workItem from="1615969837131" duration="74000" />
       <workItem from="1615969928527" duration="1770000" />
       <workItem from="1615974141796" duration="2617000" />
-      <workItem from="1616038525929" duration="293000" />
+      <workItem from="1616038525929" duration="1627000" />
     </task>
     <servers />
   </component>

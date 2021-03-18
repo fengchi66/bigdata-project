@@ -2,9 +2,9 @@
 
 ## Scala
 ### Scala基础
-[面向对象]()
+[面向对象的Scala](docs/scala/面向对象的Scala.md)
 
-[函数式编程](docs/scala/函数式编程.md)
+[函数式的Scala](docs/scala/函数式编程.md)
 
 [集合]()
 
