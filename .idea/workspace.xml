@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scala-demo/src/main/scala/com/yit/data/func/FunctionDemo03.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/scala/函数式编程.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/函数式编程.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
