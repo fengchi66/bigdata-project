@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e07080ac-9844-4579-8767-1b73d7f4fa1d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/scala/面向对象的Scala.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/scala/面向对象的Scala.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,6 +12,20 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,10 +57,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -190,7 +204,10 @@
       <workItem from="1615969837131" duration="74000" />
       <workItem from="1615969928527" duration="1770000" />
       <workItem from="1615974141796" duration="2617000" />
-      <workItem from="1616038525929" duration="1627000" />
+      <workItem from="1616038525929" duration="4030000" />
+      <workItem from="1616060310288" duration="466000" />
+      <workItem from="1616061180146" duration="151000" />
+      <workItem from="1616062737592" duration="246000" />
     </task>
     <servers />
   </component>
@@ -213,11 +230,12 @@
     <state x="547" y="138" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1615906963336" />
     <state x="2169" y="166" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1608028652527" />
     <state x="2169" y="-14" key="#com.intellij.ide.util.MemberChooser/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1608048407403" />
-    <state x="387" y="105" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1615995730836">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1956" y="-54" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1616061309570">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
     <state x="1956" y="126" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1615729650372" />
     <state x="387" y="105" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1440.900@0.0.1440.900" timestamp="1615995730836" />
+    <state x="1956" y="-54" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1616061309570" />
     <state x="2203" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1616038534307">
       <screen x="1440" y="-155" width="1920" height="1055" />
     </state>
@@ -310,13 +328,13 @@
     </state>
     <state width="1868" height="315" key="GridCell.Tab.1.right/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1608086721651" />
     <state width="1868" height="315" key="GridCell.Tab.1.right/0.25.1440.875/1440.25.1920.995@1440.25.1920.995" timestamp="1608026835176" />
-    <state x="160" y="0" width="1199" height="900" key="SettingsEditor" timestamp="1615996061767">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="1800" y="-155" width="1199" height="900" key="SettingsEditor" timestamp="1616061159538">
+      <screen x="1440" y="-180" width="1920" height="1080" />
     </state>
     <state x="241" y="0" width="1199" height="900" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1607913526983" />
     <state x="1761" y="0" key="SettingsEditor/0.0.1440.900/1440.0.1920.1080@1440.0.1920.1080" timestamp="1608000839208" />
     <state x="160" y="0" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1615996061767" />
-    <state x="1800" y="-92" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1608037845656" />
+    <state x="1800" y="-155" key="SettingsEditor/1440.-180.1920.1080/0.0.1440.900@1440.-180.1920.1080" timestamp="1616061159538" />
     <state x="1998" y="331" key="com.intellij.ide.util.TipDialog" timestamp="1610861076703">
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
